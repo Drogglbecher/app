@@ -4,9 +4,17 @@ An app approach using react native in the front and rust in the back ;)
 
 ## Requirements
 
-- jdk 8
-- android snk
-- android sdk
+- [yarn](https://yarnpkg.com/en/)
+
+### Android
+
+- [jdk 8](https://aur.archlinux.org/packages/jdk8/)
+- [android snk](https://aur.archlinux.org/packages/android-ndk/)
+- [android sdk](https://aur.archlinux.org/packages/android-sdk/)
+
+## CLI
+
+`yarn run:android`: Starts the app on an android device
 
 ## Hints
 
