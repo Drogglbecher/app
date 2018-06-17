@@ -1,11 +1,9 @@
 # App
 
-An app approach using react native in the front and rust in the back ;)
-
 ## CLI
 
-`yarn deps`: Does all necessary installations and resolves dependencies
-`yarn run:android`: Starts the app on an android device
+- `yarn deps`: Does all necessary installations and resolves dependencies
+- `yarn run:android`: Starts the app on an android device
 
 ## Requirements
 
@@ -19,6 +17,9 @@ An app approach using react native in the front and rust in the back ;)
 - [android sdk](https://aur.archlinux.org/packages/android-sdk/)
 
 #### Rusty architectures
+
+For crosscompiling purposes the following targets must be added.
+This step is included within `yarn deps`.
 
 ```
 rustup target add aarch64-linux-android
