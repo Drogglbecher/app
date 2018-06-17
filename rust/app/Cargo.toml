@@ -1,0 +1,15 @@
+[package]
+name = "app"
+version = "0.1.0"
+authors = ["Sebastian Spiess <spiess.sebastian@web.de>"]
+
+[dependencies]
+libc = "0.2"
+jni = { git = "https://github.com/prevoty/jni-rs", default-features = false, optional = true }
+
+[lib]
+name = "app"
+crate-type = ["staticlib", "cdylib"]
+
+[features]
+default = ["jni"]
