@@ -3,7 +3,9 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "run:android": "node node_modules/react-native/local-cli/cli.js run-android",
+        "deps": "cd scripts && ./setup.sh && yarn install",
+        "rust:android": "cd rust/app && make android",
+        "run:android": "yarn run rust:android && node node_modules/react-native/local-cli/cli.js run-android",
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "test": "jest"
     },
