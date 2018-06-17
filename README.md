@@ -4,6 +4,7 @@ An app approach using react native in the front and rust in the back ;)
 
 ## CLI
 
+`yarn deps`: Does all necessary installations and resolves dependencies
 `yarn run:android`: Starts the app on an android device
 
 ## Requirements
