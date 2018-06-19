@@ -13,12 +13,12 @@
 ### Android
 
 - [jdk 8](https://aur.archlinux.org/packages/jdk8/)
-- [android snk](https://aur.archlinux.org/packages/android-ndk/)
+- [android ndk](https://aur.archlinux.org/packages/android-ndk/)
 - [android sdk](https://aur.archlinux.org/packages/android-sdk/)
 
 #### Rusty architectures
 
-For crosscompiling purposes the following targets must be added.
+For crosscompiling purposes the following targets have to be added.
 This step is included within `yarn deps`.
 
 ```
@@ -35,14 +35,14 @@ the hood. First you need the basic [android emulator](https://aur.archlinux.org/
 
 
 Then an android virtual device (AVD) is needed. There is a management tool
-dealing with these AVDs withing the `<androidSDK>/tools/bin` dir called
+dealing with these AVDs located at the `<androidSDK>/tools/bin` dir called
 `avdmanager`.
 
 First a specific SDK is loaded:
 ```
 <android_sdk>/tools/bin/sdkmanager "<sdk_id>"
 ```
-An SDK ID could be e.g. "system-images;android-25;google_apis;x86".
+A SDK ID could be e.g. "system-images;android-25;google_apis;x86".
 
 Possible device IDs could be accessed by a call to
 ```
@@ -53,7 +53,7 @@ At least a new AVD can be created with
 ```
 avdmanager create avd -n nexus6 -k "system-images;android-25;google_apis;x86" -d 10
 ```
-and the emulation can be started withing the `<android_sdk>/tools` dir:
+The emulation can be started at the `<android_sdk>/tools` dir:
 ```
 emulator -avd nexus6
 ```
