@@ -13,10 +13,10 @@
 ### Android
 
 - [jdk 8](https://aur.archlinux.org/packages/jdk8/)
-- [android ndk](https://aur.archlinux.org/packages/android-ndk/)
+- [android ndk](https://aur.archlinux.org/packages/android-ndk/) (set `NDK_HOME` var)
 - [android sdk](https://aur.archlinux.org/packages/android-sdk/)
 
-#### Rusty architectures
+#### Crosscompiling
 
 For crosscompiling purposes the following targets have to be added.
 This step is included within `yarn deps`.
@@ -33,35 +33,40 @@ To setup an android emulator without installing bloaty IDEs like Android
 studio you can stick to the command line tools which are at least under
 the hood. First you need the basic [android emulator](https://aur.archlinux.org/packages/android-emulator).
 
-
 Then an android virtual device (AVD) is needed. There is a management tool
 dealing with these AVDs located at the `<androidSDK>/tools/bin` dir called
 `avdmanager`.
 
-First a specific SDK is loaded:
+First a specific SDK should be loaded:
 ```
-<android_sdk>/tools/bin/sdkmanager "<sdk_id>"
+<android_sdk>/tools/bin/sdkmanager <sdk_id>
 ```
-A SDK ID could be e.g. "system-images;android-25;google_apis;x86".
+A SDK ID could be e.g. `"system-images;android-25;google_apis;x86"`. The list of
+SDK IDs cand be accessed with
+```
+<android_sdk>/tools/bin/sdkmanager --list
+```
 
-Possible device IDs could be accessed by a call to
+Device IDs for creating an emulator (e.g. Nexus5) could be accessed by a call to
 ```
-avdmanager list device
+<android_sdk>/tools/bin/avdmanager list device
 ```
 
 At least a new AVD can be created with
 ```
-avdmanager create avd -n nexus6 -k "system-images;android-25;google_apis;x86" -d 10
+<android_sdk>/tools/bin/avdmanager create avd -n <avd_name> -k <sdk_id> -d <device_id>
 ```
 The emulation can be started at the `<android_sdk>/tools` dir:
 ```
-emulator -avd nexus6
+emulator -avd <avd_name>
 ```
 
 #### Hints
 
 You have to accept the licenses of android SDK.
 ```
-cd <android_sdk>/tools/bin
-./sdkmanager --licenses
+<android_sdk>/tools/bin/sdkmanager --licenses
 ```
+
+When you have problems with the tools `sdkmanager` or `avdmanager` please see the
+following [solution](https://stackoverflow.com/questions/47150410/failed-to-run-sdkmanager-list-android-sdk-with-java-9)
